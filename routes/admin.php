@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -20,6 +21,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->middleware('auth:admin')
         ->name('dashboard');
 
+        Route::resource("user", UserController::class)
+        ->middleware('auth:admin');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Routes Auth Admin
+    |--------------------------------------------------------------------------
+    */
     Route::get('/register', [RegisteredUserController::class, 'create'])
         ->middleware('guest:admin')
         ->name('register');
@@ -33,34 +42,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])
         ->middleware('guest:admin');
-
-    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->middleware('guest:admin')
-        ->name('password.request');
-
-    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->middleware('guest:admin')
-        ->name('password.email');
-
-    Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->middleware('guest:admin')
-        ->name('password.reset');
-
-    Route::post('/reset-password', [NewPasswordController::class, 'store'])
-        ->middleware('guest:admin')
-        ->name('password.update');
-
-    Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-        ->middleware('auth:admin')
-        ->name('verification.notice');
-
-    Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['auth:admin', 'signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth:admin', 'throttle:6,1'])
-        ->name('verification.send');
 
     Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
         ->middleware('auth:admin')
