@@ -62,13 +62,13 @@
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.divisions.index') }}">
                 @endif
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                        </path>
-                    </svg>
-                    <span class="ml-4">Divisi</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
+                </svg>
+                <span class="ml-4">Divisi</span>
                 </a>
             </li>
 
@@ -83,13 +83,13 @@
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.faqs.index') }}">
                 @endif
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
-                        </path>
-                    </svg>
-                    <span class="ml-4">FAQ</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
+                    </path>
+                </svg>
+                <span class="ml-4">FAQ</span>
                 </a>
             </li>
 
@@ -104,13 +104,13 @@
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.payment-methods.index') }}">
                 @endif
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    <span class="ml-4">Metode Pembayaran</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                    </path>
+                </svg>
+                <span class="ml-4">Metode Pembayaran</span>
                 </a>
             </li>
 
@@ -128,16 +128,24 @@
             </li>
 
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="#">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                        </path>
-                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span class="ml-4">Setting</span>
+                @if (Request::is('admin/settings*'))
+                    <span class="absolute inset-y-0 left-0 w-1 bg-blue-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true">
+                    </span>
+                    <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                        href="{{ route('admin.settings.index') }}">
+                    @else
+                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                            href="{{ route('admin.settings.index') }}">
+                @endif
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="ml-4">Setting</span>
                 </a>
             </li>
 
@@ -224,13 +232,13 @@
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.divisions.index') }}">
                 @endif
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                        </path>
-                    </svg>
-                    <span class="ml-4">Divisi</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
+                </svg>
+                <span class="ml-4">Divisi</span>
                 </a>
             </li>
 
@@ -244,26 +252,33 @@
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.faqs.index') }}">
                 @endif
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
-                        </path>
-                    </svg>
-                    <span class="ml-4">FAQ</span>
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
+                    </path>
+                </svg>
+                <span class="ml-4">FAQ</span>
                 </a>
             </li>
 
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="#">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    <span class="ml-4">Metode Pembayaran</span>
+                @if (Request::is('admin/payment-methods*'))
+                    <span class="absolute inset-y-0 left-0 w-1 bg-blue-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true"></span>
+                    <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                        href="{{ route('admin.payment-methods.index') }}">
+                    @else
+                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                            href="{{ route('admin.payment-methods.index') }}">
+                @endif
+                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                    </path>
+                </svg>
+                <span class="ml-4">Metode Pembayaran</span>
                 </a>
             </li>
 
@@ -281,8 +296,15 @@
             </li>
 
             <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="#">
+                @if (Request::is('admin/settings*'))
+                    <span class="absolute inset-y-0 left-0 w-1 bg-blue-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true"></span>
+                    <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                        href="{{ route('admin.settings.index') }}">
+                    @else
+                        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                            href="{{ route('admin.settings.index') }}">
+                @endif
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
