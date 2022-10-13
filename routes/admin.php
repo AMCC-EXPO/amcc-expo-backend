@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DivisionController;
+use App\Http\Controllers\Admin\FaqController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -26,6 +27,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->middleware('auth:admin');
 
         Route::resource("divisions", DivisionController::class)
+        ->middleware('auth:admin');
+
+        Route::resource("faqs", FaqController::class)
         ->middleware('auth:admin');
 
     /*
