@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DivisionController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -21,7 +22,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->middleware('auth:admin')
         ->name('dashboard');
 
-        Route::resource("user", UserController::class)
+        Route::resource("members", UserController::class)
+        ->middleware('auth:admin');
+
+        Route::resource("divisions", DivisionController::class)
         ->middleware('auth:admin');
 
     /*

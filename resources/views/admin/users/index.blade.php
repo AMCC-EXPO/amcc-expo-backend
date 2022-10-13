@@ -66,7 +66,9 @@
                             </tr>
                         @empty
                             <tr class="text-gray-700 dark:text-gray-400">
-                                Belum ada data
+                                <td class="px-4 py-3 text-sm text-center" colspan="3">
+                                    Belum ada data
+                                </td>
                             </tr>
                         @endforelse
 

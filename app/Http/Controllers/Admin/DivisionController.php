@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Division;
 
-class UserController extends Controller
+class DivisionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $divisions = Division::all();
 
-        return view("admin.users.index", ['users' => $users]);
+        return view("admin.divisions.index", ['divisions' => $divisions]);
     }
 
     /**
