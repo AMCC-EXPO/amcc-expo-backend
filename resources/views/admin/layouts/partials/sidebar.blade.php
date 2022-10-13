@@ -5,7 +5,7 @@
             <img class="ml-4 object-cover w-8 h-8 rounded-full" src="{{ asset('img/amcc.png') }}" alt=""
                 aria-hidden="true" />
             <a class="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('admin.dashboard') }}">
-                EXPO AMCC
+                JOIN AMCC
             </a>
         </div>
 

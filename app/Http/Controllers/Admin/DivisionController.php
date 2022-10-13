@@ -27,7 +27,7 @@ class DivisionController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.divisions.create");
     }
 
     /**
@@ -38,7 +38,15 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validator::make($request->all(), [
+        //     "location" => "required|min:3|max:100",
+        // ])->validate();
+
+        $data = new Division();
+        $data->name = $request->get('name');
+        $data->save();
+
+        return redirect()->route('admin.divisions.index');
     }
 
     /**
@@ -60,7 +68,9 @@ class DivisionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $division = Division::findOrFail($id);
+
+        return view("admin.divisions.edit", ['division' => $division]);
     }
 
     /**
@@ -72,7 +82,15 @@ class DivisionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validator::make($request->all(), [
+        //     "location" => "required|min:3|max:100",
+        // ])->validate();
+
+        $data = Division::findOrFail($id);
+        $data->name = $request->get('name');
+        $data->save();
+
+        return redirect()->route('admin.divisions.index');
     }
 
     /**
@@ -83,6 +101,9 @@ class DivisionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Division::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('admin.divisions.index');
     }
 }
