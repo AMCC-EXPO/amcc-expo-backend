@@ -8,11 +8,6 @@ use App\Models\Faq;
 
 class FaqController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $faqs = Faq::all();
@@ -20,22 +15,11 @@ class FaqController extends Controller
         return view("admin.faqs.index", ['faqs' => $faqs]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.faqs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = new Faq();
@@ -47,23 +31,11 @@ class FaqController extends Controller
         return redirect()->route('admin.faqs.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $faq = Faq::findOrFail($id);
@@ -71,13 +43,6 @@ class FaqController extends Controller
         return view("admin.faqs.edit", ['faq' => $faq]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $data = Faq::findOrFail($id);
@@ -89,12 +54,6 @@ class FaqController extends Controller
         return redirect()->route('admin.faqs.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $data = Faq::findOrFail($id);
