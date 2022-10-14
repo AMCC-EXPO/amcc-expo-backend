@@ -27,7 +27,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.faqs.create');
     }
 
     /**
@@ -38,7 +38,13 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Faq();
+        $data->question = $request->get('question');
+        $data->answer = $request->get('answer');
+        $data->is_publish = $request->get('is_publish');
+        $data->save();
+
+        return redirect()->route('admin.faqs.index');
     }
 
     /**
@@ -60,7 +66,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+
+        return view("admin.faqs.edit", ['faq' => $faq]);
     }
 
     /**
@@ -72,7 +80,13 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Faq::findOrFail($id);
+        $data->question = $request->get('question');
+        $data->answer = $request->get('answer');
+        $data->is_publish = $request->get('is_publish');
+        $data->save();
+
+        return redirect()->route('admin.faqs.index');
     }
 
     /**
@@ -83,6 +97,9 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Faq::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('admin.faqs.index');
     }
 }
