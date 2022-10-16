@@ -10,38 +10,25 @@ class SettingController extends Controller
 {
     public function index()
     {
-        $setting = Setting::first();
+        $setting = Setting::firstOrCreate();
 
         return view("admin.settings.index", ['setting' => $setting]);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(Request $request, $id)
     {
-        //
-    }
+        $setting = Setting::findOrFail($id);
 
-    public function destroy($id)
-    {
-        //
+        $setting->announcement = $request->get('announcement');
+        $setting->price = $request->get('price');
+        $setting->date_start = $request->get('date_start');
+        $setting->date_end = $request->get('date_end');
+        $setting->opening_hours = $request->get('opening_hours');
+        $setting->closing_hours = $request->get('closing_hours');
+        $setting->cs_number = $request->get('cs_number');
+        $setting->link_group = $request->get('link_group');
+        $setting->save();
+
+        return redirect()->route('admin.settings.index');
     }
 }
