@@ -16,7 +16,7 @@
                     <label class="block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Nama Metode</span>
                         <input
-                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="name" placeholder="ex. BCA" />
                     </label>
 
@@ -30,21 +30,21 @@
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Nama Penerima</span>
                         <input
-                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="receiver_name" placeholder="Nama Penerima" />
                     </label>
 
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Rekening Penerima</span>
                         <input type="number"
-                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="receiver_number" placeholder="Rekening Penerima" />
                     </label>
 
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Biaya Tambahan (Rupiah)</span>
                         <input type="number"
-                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="fee" placeholder="Biaya Tambahan" />
                     </label>
 

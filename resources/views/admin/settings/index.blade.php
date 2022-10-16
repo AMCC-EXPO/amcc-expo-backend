@@ -33,27 +33,27 @@
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Biaya</span>
                         <input type="number"
-                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="price" placeholder="price" value="{{ $setting->price }}" />
                     </label>
 
                     <label class="mt-4 block text-sm">
                         <span class="block text-gray-700 dark:text-gray-400">Dibuka pada</span>
                         <input type="date"
-                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="date_start" value="{{ $setting->date_start }}" />
                         <input type="time"
-                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="opening_hours" value="{{ $setting->opening_hours }}" />
                     </label>
 
                     <label class="mt-4 block text-sm">
                         <span class="block text-gray-700 dark:text-gray-400">Ditutup pada</span>
                         <input type="date"
-                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="date_end" value="{{ $setting->date_end }}" />
                         <input type="time"
-                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="w-50 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="closing_hours" value="{{ $setting->closing_hours }}" />
                     </label>
 
@@ -64,14 +64,14 @@
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Nomor WA CS</span>
                         <input type="number"
-                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="cs_number" placeholder="628xxxxxx" value="{{ $setting->cs_number }}" />
                     </label>
 
                     <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Link Grup WA</span>
                         <input
-                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                             name="link_group" placeholder="https://xxxxx" value="{{ $setting->link_group }}" />
                     </label>
 
