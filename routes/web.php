@@ -20,6 +20,14 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
+Route::get('/email1', function () {
+    return view('emails.register');
+});
+
+Route::get('/email2', function () {
+    return view('emails.invoicePaid');
+});
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/wizard/profile', [WizardController::class, 'profile'])
