@@ -4,7 +4,7 @@
     </div>
     <div id="accordion-collapse" data-accordion="collapse">
 
-        @foreach (\App\Models\Faq::all() as $faq)
+        @foreach (\App\Models\Faq::where('is_publish', true)->get() as $faq)
             <h2 id="accordion-collapse-heading-2" class="mt-5">
                 <button type="button"
                     class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border-2 border-gray-200 bg-white focus:ring-0 rounded-md dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"

@@ -13,7 +13,6 @@
         <div class="flex flex-col-reverse md:space-y-0 md:flex-row md:px-10">
             <div class="flex flex-col mx-auto bg-white drop-shadow-md md:w-full p-20 rounded-xl">
 
-
                 <form enctype="multipart/form-data" method="POST" action="{{ route('update-profile') }}">
                     @csrf
 
