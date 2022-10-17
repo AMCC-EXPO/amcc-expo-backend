@@ -42,6 +42,10 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->payment->delete();
+        $data->delete();
+
+        return redirect()->route('admin.members.index');
     }
 }
