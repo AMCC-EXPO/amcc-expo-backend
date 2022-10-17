@@ -70,8 +70,10 @@ class WizardController extends Controller
         }
 
         $paymentMethod = $request->user()->payment->paymentMethod;
+        // $paymentDue = date_format($request->user()->payment->payment_due, 'd/m/Y H:i:s');
+        $paymentDue = $request->user()->payment->payment_due;
 
-        return view('wizard.payment_confirm', compact('paymentMethod'));
+        return view('wizard.payment_confirm', compact('paymentMethod', 'paymentDue'));
     }
 
     public function storePaymentConfirm(Request $request)

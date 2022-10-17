@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,8 +34,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-
         $request->validate([
             'nim' => ['required', 'string', 'max:10', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
@@ -52,7 +51,9 @@ class RegisteredUserController extends Controller
         ]);
 
         if ($user->payment == null) {
-            $user->payment()->create();
+            $user->payment()->create([
+                'payment_due' => Carbon::now()->addDays(3)
+            ]);
         }
 
         event(new Registered($user));

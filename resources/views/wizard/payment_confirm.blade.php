@@ -14,7 +14,14 @@
                     @if ($paymentMethod->is_ots == true)
                         <h1 class="text-sm md:text-lg">Silahkan Mendatangi Stand EXPO AMCC</h1>
                     @else
-                        <h1 class="text-sm md:text-lg">Mohon transfer ke rekening dibawah</h1>
+                        <h1 class="text-sm md:text-lg">Mohon transfer ke rekening dibawah, sertakan NIM lengkap kamu tanpa
+                            titik (contoh: 22119999) di Nomor Referensi nya saat transfer.</h1>
+                            <h1 class="text-sm md:text-lg">Maksimal pembayaran pada
+                            <b>{{ $paymentDue }}</b>
+                            {{-- <b>{{ Auth::user()->payment->payment_due }}</b> --}}
+                            {{-- {{ date_format(Auth::user()->payment->payment_due, 'd/m/Y H:i:s') }} --}}
+                            {{-- {{ DateTime::createFromFormat('Y-m-d H:i:s', Auth::user()->payment->payment_due); }} --}}
+                        </h1>
                     @endif
                 </div>
                 <form enctype="multipart/form-data" method="POST" action="{{ route('wizard.store-payment-confirm') }}">
@@ -55,7 +62,8 @@
                             Pembayaran</label>
                         <input
                             class="block mb-5 md:w-1/2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none drop-shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            id="upload_file" type="file" accept="image/png, image/jpeg, image/jpg" name="bukti-transfer" required/>
+                            id="upload_file" type="file" accept="image/png, image/jpeg, image/jpg" name="bukti-transfer"
+                            required />
                     </div>
                     <div class="flex flex-col space-y-3 md:space-y-0 md:flex-row md:justify-between mt-10">
                         <a href="{{ route('wizard.payment-method') }}"
