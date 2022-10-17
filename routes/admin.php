@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -25,20 +26,28 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->middleware('auth:admin')
         ->name('dashboard');
 
-        Route::resource("members", UserController::class)
+    Route::resource("members", UserController::class)
         ->middleware('auth:admin');
 
-        Route::resource("divisions", DivisionController::class)
+    Route::resource("divisions", DivisionController::class)
         ->middleware('auth:admin');
 
-        Route::resource("faqs", FaqController::class)
+    Route::resource("faqs", FaqController::class)
         ->middleware('auth:admin');
 
-        Route::resource("payment-methods", PaymentMethodController::class)
+    Route::resource("payment-methods", PaymentMethodController::class)
         ->middleware('auth:admin');
 
-        Route::resource("settings", SettingController::class)
+    Route::resource("settings", SettingController::class)
         ->middleware('auth:admin');
+
+    Route::get('/members/{id}/review', [PaymentController::class, 'review'])
+        ->middleware('auth:admin')
+        ->name('review');
+
+    Route::post('/members/{id}/approve', [PaymentController::class, 'approve'])
+        ->middleware('auth:admin')
+        ->name('approve');
 
     /*
     |--------------------------------------------------------------------------

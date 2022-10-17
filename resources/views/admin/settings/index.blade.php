@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Divisi')
+@section('title', 'Setting')
 
 @section('content')
     <div class="container px-6 mx-auto grid">

@@ -36,10 +36,6 @@ class WizardController extends Controller
         $user->wizard = 'payment-method';
         $user->save();
 
-        if ($user->payment == null) {
-            $user->payment()->create();
-        }
-
         return redirect()->route('wizard.payment-method');
     }
 

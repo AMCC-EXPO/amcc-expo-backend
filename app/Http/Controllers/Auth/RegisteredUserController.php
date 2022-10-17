@@ -51,6 +51,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        if ($user->payment == null) {
+            $user->payment()->create();
+        }
+
         event(new Registered($user));
 
         Auth::login($user);
