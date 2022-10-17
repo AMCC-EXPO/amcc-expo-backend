@@ -363,7 +363,7 @@
                 <tr>
                     <td valign="middle" class="hero hero-2 bg_white" style="padding: 1em 0;">
                         <div class="text" style="text-align: center;">
-                            <h2>Invoice Pendaftaran</h2>
+                            <h2>Invoice Pendaftaran #{{ $user->registration_number }}</h2>
                         </div>
                     </td>
                 </tr><!-- end tr -->
@@ -374,15 +374,17 @@
                                 <td class="bg_white email-section">
                                     <div class="heading-section" style="text-align: left; padding: 0 30px;">
                                         <p style="color: #000000 !important; text-align: justify;">
-                                            Hai <b>NAMA </b>! Terima kasih kamu telah memilih AMCC. Tinggal beberapa
-                                            langkah lagi! kamu perlu melengkapi data diri kemudian membayar
-                                            biaya pendaftaran sebesar <b>Rp.80,000 </b>
-                                            dengan melakukan <b>transfer ke salah satu rekening yang dapat kamu pilih
-                                                pada website.</b>
+                                            Hai <b>{{ $user->name }}</b>! Terima kasih kamu telah memilih AMCC.
+                                            Tinggal beberapa
+                                            langkah lagi! Kamu perlu melengkapi data diri kemudian segera membayar
+                                            biaya pendaftaran sebesar <b>Rp.{{ number_format(\App\Models\Setting::first()->price)}}</b>
+                                            dengan melakukan <b>transfer ke salah satu rekening</b> yang dapat kamu
+                                            pilih pada website. Kami juga menerima <b>pembayaran tunai saat EXPO
+                                                berlangsung</b>.
 
-                                            <br><br>Mohon <b>sertakan NIM</b> lengkap kamu tanpa titik (contoh:
+                                            <br><br>Mohon <b>sertakan NIM lengkap</b> kamu tanpa titik (contoh:
                                             22119999)
-                                            <b>di Nomor Referensi</b> nya saat transfer.<br>
+                                            <b>di Nomor Referensi / Catatan</b> nya saat transfer.<br>
                                             <br>Segera setelah kamu selesai transfer kamu perlu melakukan <b>konfirmasi
                                                 pembayaran
                                                 dengan mengirimkan bukti transfer</b>, bisa <b>berupa foto atau
@@ -391,8 +393,8 @@
                                         </p>
                                         <br>
                                         <center>
-                                            <a href="https://join.amcc.or.id" target="_blank" rel="noreferrer noopener"
-                                                class="btn btn-primary">
+                                            <a href="https://join.amcc.or.id/login" target="_blank"
+                                                rel="noreferrer noopener" class="btn btn-primary">
                                                 Selesaikan Pendaftaran
                                             </a>
                                             <br /><br />
@@ -441,8 +443,8 @@
                                             <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                                                 <h3 class="heading" style="font-size: 18px;">Basecamp</h3>
                                                 <p>
-                                                    AMCC Camp<br/>
-                                                    Gg. Kapuas No.47, Jetis, Wedomartani, Ngemplak,<br/>
+                                                    AMCC Camp<br />
+                                                    Gg. Kapuas No.47, Jetis, Wedomartani, Ngemplak,<br />
                                                     Sleman, DIY 55584
                                                 </p>
                                             </td>

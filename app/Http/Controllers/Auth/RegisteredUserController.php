@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use App\Models\User;
+use App\Notifications\RegisterNotification;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
@@ -46,8 +47,6 @@ class RegisteredUserController extends Controller
         $initialRegNum = Setting::first()->initial_registration_number;
         $currentRegNum = User::max('registration_number');
 
-        // dd($currentRegNum);
-
         if ($currentRegNum == 0) {
             $registrationNumber = $initialRegNum;
         } else {
@@ -70,6 +69,8 @@ class RegisteredUserController extends Controller
         }
 
         event(new Registered($user));
+
+        $user->notify(new RegisterNotification($user));
 
         Auth::login($user);
 

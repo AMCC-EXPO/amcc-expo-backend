@@ -25,7 +25,7 @@ Route::get('/email1', function () {
 });
 
 Route::get('/email2', function () {
-    return view('emails.invoicePaid');
+    return view('emails.paid');
 });
 
 Route::middleware('auth')->group(function () {
