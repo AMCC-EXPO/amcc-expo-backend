@@ -20,6 +20,7 @@ class SettingController extends Controller
         $setting = Setting::findOrFail($id);
 
         $setting->announcement = $request->get('announcement');
+        $setting->initial_registration_number = $request->get('initial_registration_number');
         $setting->price = $request->get('price');
         $setting->date_start = $request->get('date_start');
         $setting->date_end = $request->get('date_end');

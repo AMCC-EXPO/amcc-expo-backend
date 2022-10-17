@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
@@ -42,7 +43,19 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $initialRegNum = Setting::first()->initial_registration_number;
+        $currentRegNum = User::max('registration_number');
+
+        // dd($currentRegNum);
+
+        if ($currentRegNum == 0) {
+            $registrationNumber = $initialRegNum;
+        } else {
+            $registrationNumber = $currentRegNum + 1;
+        }
+
         $user = User::create([
+            'registration_number' => $registrationNumber,
             'nim' => $request->nim,
             'name' => $request->name,
             'email' => $request->email,

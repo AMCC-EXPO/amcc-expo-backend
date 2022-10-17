@@ -31,10 +31,18 @@
                     </h4>
 
                     <label class="mt-4 block text-sm">
+                        <span class="text-gray-700 dark:text-gray-400">Nomor awal pendaftar</span>
+                        <input type="number"
+                            class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                            name="initial_registration_number" placeholder="Nomor awal pendaftar"
+                            value="{{ $setting->initial_registration_number }}" required />
+                    </label>
+
+                    <label class="mt-4 block text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Biaya</span>
                         <input type="number"
                             class="block w-150 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                            name="price" placeholder="price" value="{{ $setting->price }}" />
+                            name="price" placeholder="price" value="{{ $setting->price }}" required />
                     </label>
 
                     <label class="mt-4 block text-sm">
