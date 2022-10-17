@@ -5,7 +5,7 @@
 @section('content')
     <div class="container grid px-6 pb-16 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Member
+            Member (Terbaru)
         </h2>
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -61,7 +61,7 @@
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Review" type="button" alt="Review"
-                                            href="{{ $user->payment->payment_method_id != null ? route('admin.review', [$user->id]) : '#' }}">
+                                            href="{{ $user->payment->status != 'unpaid' ? route('admin.review', [$user->id]) : '#' }}">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -121,7 +121,7 @@
                             </tr>
                         @empty
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm text-center" colspan="3">
+                                <td class="px-4 py-3 text-sm text-center" colspan="10">
                                     Belum ada data
                                 </td>
                             </tr>

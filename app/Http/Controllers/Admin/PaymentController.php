@@ -26,6 +26,6 @@ class PaymentController extends Controller
         // TODO
         // EMAIL WELCOME
 
-        return view('admin.users.index');
+        return redirect()->route('admin.members.index');
     }
 }

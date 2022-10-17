@@ -14,7 +14,8 @@
                 <div
                     class="flex z-10 justify-center items-center rounded-full ring-0 dark:bg-blue-900 dark:ring-gray-900 shrink-0">
                     <div class="relative">
-                        <a href="{{ route('wizard.profile') }}">
+                        {{-- <a href="{{ route('wizard.profile') }}"> --}}
+                        <a href>
                             <img class="md:w-[60px] w-[45px]" src="{{ asset('img/data-diri.svg') }}" alt="" />
                             <h3
                                 class="absolute md:-bottom-10 md:w-60 text-center md:-left-[90px] -left-1 font-semibold md:text-xl text-sm">
@@ -34,7 +35,8 @@
                 <div
                     class="flex z-10 justify-center items-center rounded-full ring-0 dark:bg-blue-900 dark:ring-gray-900 shrink-0">
                     <div class="relative">
-                        <a href="{{ route('wizard.payment-method') }}">
+                        {{-- <a href="{{ route('wizard.payment-method') }}"> --}}
+                        <a>
                             <img class="md:w-[60px] w-[45px]"
                                 src="{{ !Request::is('wizard/profile') ? asset('img/payment-method-active.svg') : asset('img/payment-method-disabled.svg') }}"
                                 alt="" />
@@ -56,7 +58,8 @@
                 <div
                     class="flex z-10 justify-center items-center rounded-full ring-0 dark:bg-blue-900 dark:ring-gray-900 shrink-0">
                     <div class="relative">
-                        <a href="{{ route('wizard.payment-confirm') }}">
+                        {{-- <a href="{{ route('wizard.payment-confirm') }}"> --}}
+                        <a>
                             <img class="md:w-[60px] w-[45px]" src="{{ !Request::is('wizard/profile') && !Request::is('wizard/payment-method') ? asset('img/payment-confirm-active.svg') : asset('img/payment-confirm-disabled.svg') }}"
                                 alt="" />
                             <h3
