@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -25,4 +26,16 @@ class PaymentMethod extends Model implements HasMedia
         'is_ots' => 'boolean',
         'is_active' => 'boolean',
     ];
+
+    protected function total(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value, $attributes) {
+                $price = Setting::first()->price;
+                $total = $price + $attributes['fee'];
+
+                return $total;
+            }
+        );
+    }
 }
