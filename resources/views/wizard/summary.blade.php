@@ -68,16 +68,17 @@
                                         Berhasil</div>
                                 @else
                                     <div
-                                        class="text-black bg-yellow-200 focus:outline-none focus:ring-blue-300 md:w-[222px] font-medium rounded-lg text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        class="text-black bg-[#D6DA07] focus:outline-none focus:ring-blue-300 md:w-[222px] font-medium rounded-lg text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Sedang di Review</div>
                                 @endif
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-between mt-10">
-                        <button type="submit"
-                            class="text-white bg-primary-color hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 px-3 py-2 md:w-[222px] font-medium rounded-lg text-sm md:text-lg md:px-5 md:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ubah
-                            Data</button>
+                        <a href="{{ route('edit-profile') }}"
+                            class="text-white bg-primary-color hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 px-3 py-2 md:w-[222px] font-medium rounded-lg text-sm md:text-lg md:px-5 md:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Ubah Data
+                        </a>
                     </div>
                 </form>
             </div>

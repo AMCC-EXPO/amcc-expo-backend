@@ -23,8 +23,21 @@
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
                     <a href="{{ \App\Models\Setting::first()->link_group }} }}" target="_blank"
-                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Join
-                        grup Whatsapp</a>
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        Join grup whatsapp
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('edit-profile') }}"
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        Ubah data diri
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('change-password') }}"
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        Ganti password
+                    </a>
                 </li>
                 <form method="POST" action="{{ route('logout') }}">
                     <li>

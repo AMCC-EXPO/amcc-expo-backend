@@ -45,9 +45,9 @@ class WizardController extends Controller
 
     public function paymentMethod(Request $request)
     {
-        if ($request->user()->wizard == 'summary') {
-            return redirect()->route('wizard.summary');
-        }
+        // if ($request->user()->wizard == 'summary') {
+        //     return redirect()->route('wizard.summary');
+        // }
 
         $paymentMethods = PaymentMethod::where('is_active', true)->get();
 

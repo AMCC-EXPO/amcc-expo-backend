@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WizardController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -42,6 +43,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/wizard/summary', [WizardController::class, 'summary'])
         ->name('wizard.summary');
 
+    Route::get('/edit-profile', [AccountController::class, 'editProfile'])
+        ->name('edit-profile');
+
+    Route::post('/edit-profile', [AccountController::class, 'updateProfile'])
+        ->name('update-profile');
+
+    Route::get('/change-password', [AccountController::class, 'changePassword'])
+        ->name('change-password');
+
+    Route::post('/update-password', [AccountController::class, 'updatePassword'])
+        ->name('update-password');
 });
 
 // Route::get('/', function () {
