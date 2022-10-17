@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
@@ -48,6 +49,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/members/{id}/approve', [PaymentController::class, 'approve'])
         ->middleware('auth:admin')
         ->name('approve');
+
+    Route::post('/members/{id}/reset-password', [AccountController::class, 'resetPassword'])
+        ->middleware('auth:admin')
+        ->name('members.reset-password');
 
     /*
     |--------------------------------------------------------------------------

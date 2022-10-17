@@ -62,4 +62,13 @@ class AccountController extends Controller
 
         return back()->with("status", "Password sukses dirubah!");
     }
+
+    public function resetPassword(Request $request, $id)
+    {
+        User::whereId($id)->update([
+            'password' => Hash::make("amccamikom")
+        ]);
+
+        return redirect()->route('admin.members.index');
+    }
 }

@@ -37,7 +37,7 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ ($user->payment->payment_method_id != null) ? $user->payment->paymentMethod->name : '-' }}
+                                    {{ $user->payment->payment_method_id != null ? $user->payment->paymentMethod->name : '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-xs">
                                     @if ($user->payment->status == 'paid')
@@ -60,8 +60,8 @@
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                            aria-label="Review" type="button"
-                                            href="{{ ($user->payment->payment_method_id != null) ? route('admin.review', [$user->id]) : '#'}}">
+                                            aria-label="Review" type="button" alt="Review"
+                                            href="{{ $user->payment->payment_method_id != null ? route('admin.review', [$user->id]) : '#' }}">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -72,7 +72,7 @@
                                             </svg>
                                         </a>
 
-                                        <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                        {{-- <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Edit" type="button"
                                             href="{{ route('admin.members.edit', [$user->id]) }}">
                                             <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -80,7 +80,26 @@
                                                     d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
                                                 </path>
                                             </svg>
-                                        </a>
+                                        </a> --}}
+
+                                        <form
+                                            onsubmit="return confirm('Yakin ingin mereset ke password default? (amccamikom)')"
+                                            class="d-inline"
+                                            action="{{ route('admin.members.reset-password', [$user->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            {{-- <input type="hidden" name="_method" value="PUT"> --}}
+                                            <button
+                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Reset Password" type="submit">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </form>
 
                                         <form onsubmit="return confirm('Yakin ingin menghapus?')" class="d-inline"
                                             action="{{ route('admin.members.destroy', [$user->id]) }}" method="POST">
