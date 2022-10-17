@@ -86,7 +86,8 @@
                                         </a>
 
                                         <form onsubmit="return confirm('Yakin ingin menghapus?')" class="d-inline"
-                                            action="{{ route('admin.payment-methods.destroy', [$paymentMethod->id]) }}" method="POST">
+                                            action="{{ route('admin.payment-methods.destroy', [$paymentMethod->id]) }}"
+                                            method="POST">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button
@@ -105,7 +106,7 @@
                             </tr>
                         @empty
                             <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm text-center" colspan="6">
+                                <td class="px-4 py-3 text-sm text-center" colspan="10">
                                     Belum ada data
                                 </td>
                             </tr>
