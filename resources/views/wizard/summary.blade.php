@@ -27,6 +27,10 @@
                     <div class="grid grid-cols md:grid-cols-2">
                         <div class="form-group mb-2">
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
+                                <div class="md:text-xl font-bold">Nomor Pendaftaran :</div>
+                                <div class="">{{ $user->registration_number }}</div>
+                            </div>
+                            <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Nama Lengkap :</div>
                                 <div class="">{{ $user->name }}</div>
                             </div>
@@ -35,16 +39,16 @@
                                 <div class="">{{ $user->nim }}</div>
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
+                                <div class="md:text-xl font-bold">E-mail :</div>
+                                <div class="">{{ $user->email }}</div>
+                            </div>
+                            <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">No. Whatsapp :</div>
                                 <div class="">{{ $user->phone }}</div>
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Program Studi :</div>
                                 <div class="">{{ $user->program_study }}</div>
-                            </div>
-                            <div class="block md:w-1/2 w-full rounded-xl mt-2">
-                                <div class="md:text-xl font-bold">E-mail :</div>
-                                <div class="">{{ $user->email }}</div>
                             </div>
                         </div>
                         <div class="form-group mb-2">
