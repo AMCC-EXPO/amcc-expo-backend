@@ -14,7 +14,7 @@
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3">No.Pendaftaran</th>
+                            <th class="px-4 py-3">NO.REG</th>
                             <th class="px-4 py-3">NIM</th>
                             <th class="px-4 py-3">Nama</th>
                             <th class="px-4 py-3">Email</th>
@@ -29,7 +29,7 @@
                         @forelse ($users as $user)
                             <tr class="text-gray-700 dark:text-gray-400">
                                 <td class="px-4 py-3 text-sm">
-                                    {{ $user->registration_number }}
+                                    #{{ $user->registration_number }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     {{ $user->nim }}
@@ -41,7 +41,7 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ $user->payment->payment_method_id != null ? $user->payment->paymentMethod->name : '-' }}
+                                    {{ $user->payment->payment_method_id != null ? $user->payment->paymentMethod->name : 'Belum memilih' }}
                                 </td>
                                 <td class="px-4 py-3 text-xs">
                                     @if ($user->payment->status == 'paid')
@@ -55,8 +55,12 @@
                                             Perlu di Review
                                         </span>
                                     @else
-                                        <span
+                                        {{-- <span
                                             class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                            Belum Bayar
+                                        </span> --}}
+                                        <span
+                                            class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
                                             Belum Bayar
                                         </span>
                                     @endif

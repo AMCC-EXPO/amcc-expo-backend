@@ -15,7 +15,7 @@
                     class="flex z-10 justify-center items-center rounded-full ring-0 dark:bg-blue-900 dark:ring-gray-900 shrink-0">
                     <div class="relative">
                         {{-- <a href="{{ route('wizard.profile') }}"> --}}
-                        <a href>
+                        <a>
                             <img class="md:w-[60px] w-[45px]" src="{{ asset('img/data-diri.svg') }}" alt="" />
                             <h3
                                 class="absolute md:-bottom-10 md:w-60 text-center md:-left-[90px] -left-1 font-semibold md:text-xl text-sm">
