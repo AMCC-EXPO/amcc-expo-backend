@@ -42,7 +42,7 @@
                                 required>
 
                                 @if ($user->division_id == null)
-                                    <option selected disabled>Pilih Divisi</option>
+                                    <option value="" disabled selected hidden>Pilih Divisi</option>
                                 @else
                                     <option selected value=" {{ $user->division->id }}">
                                         {{ $user->division->name }}
@@ -72,7 +72,7 @@
                                 required>
 
                                 @if ($user->reference_source == null)
-                                    <option selected disabled>Silahkan dipilih</option>
+                                    <option value="" disabled selected hidden>Silahkan dipilih</option>
                                 @else
                                     <option selected value="{{ $user->reference_source }}">
                                         {{ $user->reference_source }}
@@ -106,9 +106,9 @@
                                 required>
 
                                 @if ($user->program_study == null)
-                                    <option selected disabled>Pilih Program Studi</option>
+                                    <option value="" disabled selected hidden>Pilih Program Studi</option>
                                 @else
-                                    <option selected value="{{ $user->program_study }}">
+                                    <option selected hidden value="{{ $user->program_study }}">
                                         {{ $user->program_study }}
                                     </option>
                                 @endif
