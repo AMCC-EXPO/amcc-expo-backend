@@ -5,7 +5,7 @@
 @section('content')
     <div class="container grid px-6 pb-16 mx-auto">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Member (Terbaru)
+            Member
         </h2>
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -18,7 +18,7 @@
                             <th class="px-4 py-3">NO.REG</th>
                             <th class="px-4 py-3">NIM</th>
                             <th class="px-4 py-3">Nama</th>
-                            <th class="px-4 py-3">Email</th>
+                            {{-- <th class="px-4 py-3">Email</th> --}}
                             <th class="px-4 py-3">Metode Pembayaran</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Actions</th>
@@ -41,9 +41,9 @@
                                 <td class="px-4 py-3 text-sm">
                                     {{ $user->name }}
                                 </td>
-                                <td class="px-4 py-3 text-sm">
+                                {{-- <td class="px-4 py-3 text-sm">
                                     {{ $user->email }}
-                                </td>
+                                </td> --}}
                                 <td class="px-4 py-3 text-sm">
                                     {{ $user->payment->payment_method_id != null ? $user->payment->paymentMethod->name : 'Belum memilih' }}
                                 </td>
@@ -59,10 +59,6 @@
                                             Perlu di Review
                                         </span>
                                     @else
-                                        {{-- <span
-                                            class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                            Belum Bayar
-                                        </span> --}}
                                         <span
                                             class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
                                             Belum Bayar
@@ -142,6 +138,103 @@
                     </tbody>
                 </table>
             </div>
+
+            <div
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+                <span class="flex items-center col-span-5">
+                    Page {{ $users->currentPage() }}
+                    {{-- Showing 21-30 of 100 --}}
+                </span>
+
+                {{-- <span class="col-span-2"></span> --}}
+
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                    <nav aria-label="Table navigation">
+                        <ul class="inline-flex items-center">
+                            <li>
+                                <a href="{{ $users->previousPageUrl() }}"
+                                    class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-blue"
+                                    aria-label="Previous">
+                                    {{-- <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg> --}}
+                                    Previous
+                                </a>
+                            </li>
+
+                            {{-- <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                    1
+                                </button>
+                            </li>
+                            --}}
+
+                            <?php
+                            $lastPage = $users->lastPage();
+                            $pages = $users->getUrlRange(1, $lastPage);
+                            $i = 1;
+                            ?>
+
+
+                            @foreach ($pages as $page)
+                                <li>
+                                    <a href="{{ $page }}"
+                                        class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                        {{ $i }}
+                                    </a>
+                                </li>
+                                <?php $i = $i + 1; ?>
+                            @endforeach
+
+                            {{--
+                            <li>
+                                <button
+                                    class="px-3 py-1 text-white transition-colors duration-150 bg-blue-600 border border-r-0 border-blue-600 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                    3
+                                </button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                    4
+                                </button>
+                            </li>
+                            <li>
+                                <span class="px-3 py-1">...</span>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                    8
+                                </button>
+                            </li>
+                            <li>
+                                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-blue">
+                                    9
+                                </button>
+                            </li> --}}
+                            <li>
+                                <a href="{{ $users->nextPageUrl() }}"
+                                    class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-blue"
+                                    aria-label="Next">
+                                    {{-- <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
+                                        <path
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </svg> --}}
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    {{-- <span class="items-center">
+                        Page {{ $users->currentPage() }}
+                    </span> --}}
+                </span>
+            </div>
         </div>
+
+    </div>
     </div>
 @endsection
