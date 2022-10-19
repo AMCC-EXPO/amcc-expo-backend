@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return route('register');
+    return redirect()->route('register');
 });
 
 Route::get('/email1', function () {
