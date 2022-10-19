@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
+    return route('register');
 });
 
 Route::get('/email1', function () {
