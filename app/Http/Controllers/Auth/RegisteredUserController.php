@@ -23,7 +23,25 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $today = Carbon::today()->toDateString();
+        $now = Carbon::now()->toTimeString();
+        $setting = Setting::first();
+        $inOperational = false;
+        $inPeriod = false;
+
+        if ($today >= $setting->date_start && $today <= $setting->date_end) {
+            $inPeriod = true;
+        }
+
+        if ($now >= $setting->opening_hours && $now <= $setting->closing_hours) {
+            $inOperational = true;
+        }
+
+        if ($inPeriod == true && $inOperational == true) {
+            return view('auth.register');
+        }
+
+        return view('closed', compact('inPeriod', 'inOperational'));
     }
 
     /**
