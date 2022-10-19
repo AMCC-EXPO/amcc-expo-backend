@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Division;
+use App\Models\Setting;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +21,15 @@ class AccountController extends Controller
         $user = $request->user();
         $divisions = Division::all();
 
-        return view('editProfile', compact('user', 'divisions'));
+        $today = Carbon::today()->toDateString();
+        $setting = Setting::first();
+        $inPeriod = false;
+
+        if ($today >= $setting->date_start && $today <= $setting->date_end) {
+            $inPeriod = true;
+        }
+
+        return view('editProfile', compact('user', 'divisions', 'inPeriod'));
     }
 
     public function updateProfile(Request $request)
