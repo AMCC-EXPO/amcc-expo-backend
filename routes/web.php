@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WizardController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\PaymentController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return redirect()->route('register');
 });
+
+Route::get('/receipt/{hash}', [PaymentController::class, 'showReceipt']);
 
 Route::get('/email1', function () {
     return view('emails.register');

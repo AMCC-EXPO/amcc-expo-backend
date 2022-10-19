@@ -18,6 +18,7 @@ class Payment extends Model implements HasMedia
         'amount',
         'payment_due',
         'status',
+        'hash',
     ];
 
     public function paymentMethod()

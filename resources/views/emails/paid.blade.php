@@ -353,8 +353,7 @@
                             <tr>
                                 <td class="logo" style="text-align: center; padding-top: 48px;">
                                     <a href="#">
-                                        <img src="{{ asset('img/amcc-logo.png') }}" width="96"
-                                            height="96" />
+                                        <img src="{{ asset('img/amcc-logo.png') }}" width="96" height="96" />
                                     </a>
                                 </td>
                             </tr>
@@ -367,8 +366,8 @@
                             <tr>
                                 <td>
                                     <div class="text" style="padding: 0 3em 2em; text-align: center;">
-                                        <p style="color: #000; font-size: 18px; margin-bottom: 10px;">Hi,
-                                            Nama
+                                        <p style="color: #000; font-size: 18px; margin-bottom: 10px;">
+                                            Hi, {{ $user->name }}
                                         </p>
                                         <h2>Welcome to <span>AMCC family</span>!<br />Let's <span>build something
                                                 amazing</span> :)</h2>
@@ -386,14 +385,16 @@
                                     <div class="heading-section" style="text-align: center; padding: 0 30px;">
                                         <p style="color: #000; text-align: justify;">
                                             Terima kasih kamu telah memilih AMCC!
-                                            Berikut kami lampirkan tautan <strong>tanda bukti terima pembayaran</strong>
+                                            Kamu berhasil mendaftar pada Divisi <b>{{ $user->division->name }}</b>.
+                                            Berikut kami lampirkan <strong>tanda bukti terima pembayaran</strong>
                                             registrasi member di Expo Amikom.<br /><br />
                                             Hmm selanjutnya ngapain ya? Ikut <strong>First Meet</strong> dong tentunya!
                                             Kapan first meetnya diadakan? pantengin sosmed AMCC ya! Sampai jumpa disana,
                                             kami akan sangat senang kalo kamu dateng!<br /><br />
                                         </p>
-                                        <a href="" target="_blank" rel="noreferrer noopener"
-                                            class="btn btn-primary">Lihat Tanda Bukti Pembayaran</a>
+                                        <a href="https://join.amcc.or.id/receipt/{{ $user->payment->hash }}"
+                                            target="_blank" rel="noreferrer noopener" class="btn btn-primary">Lihat
+                                            Tanda Bukti Pembayaran</a>
                                         <br /><br />
                                     </div>
                                 </td>
@@ -439,8 +440,8 @@
                                             <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
                                                 <h3 class="heading" style="font-size: 18px;">Basecamp</h3>
                                                 <p>
-                                                    AMCC Camp<br/>
-                                                    Gg. Kapuas No.47, Jetis, Wedomartani, Ngemplak,<br/>
+                                                    AMCC Camp<br />
+                                                    Gg. Kapuas No.47, Jetis, Wedomartani, Ngemplak,<br />
                                                     Sleman, DIY 55584
                                                 </p>
                                             </td>
