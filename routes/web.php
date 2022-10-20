@@ -23,14 +23,6 @@ Route::get('/', function () {
 
 Route::get('/receipt/{hash}', [PaymentController::class, 'showReceipt']);
 
-Route::get('/email1', function () {
-    return view('emails.register');
-});
-
-Route::get('/email2', function () {
-    return view('emails.paid');
-});
-
 Route::middleware('auth')->group(function () {
 
     Route::get('/wizard/profile', [WizardController::class, 'profile'])

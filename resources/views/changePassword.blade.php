@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Ubah Data Diri')
+@section('title', 'Ubah Password')
 
 @section('content')
     <section id="title-header">

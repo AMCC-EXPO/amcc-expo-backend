@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Metode Pembayaran')
+@section('title', 'Summary')
 
 @section('content')
 
@@ -48,21 +48,21 @@
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Program Studi :</div>
-                                <div class="">{{ $user->program_study }}</div>
+                                <div class="">{{ ($user->program_study) ?  $user->program_study : '-'}}</div>
                             </div>
                         </div>
                         <div class="form-group mb-2">
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Pilihan Divisi :</div>
-                                <div class="">{{ $user->division->name }}</div>
+                                <div class="">{{ ($user->division_id) ? $user->division->name : '-' }}</div>
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Kenal AMCC darimana ? :</div>
-                                <div class="">{{ $user->reference_source }}</div>
+                                <div class="">{{ ($user->reference_source) ? $user->reference_source : '-' }}</div>
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2">
                                 <div class="md:text-xl font-bold">Alamat Domisili :</div>
-                                <div class="">{{ $user->address }}</div>
+                                <div class="">{{ ($user->address) ? $user->address : '-' }}</div>
                             </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2 space-y-3">
                                 <div class="md:text-xl font-bold">Status Pendaftaran</div>

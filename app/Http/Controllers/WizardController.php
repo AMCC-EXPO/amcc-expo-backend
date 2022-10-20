@@ -101,6 +101,10 @@ class WizardController extends Controller
         $user = $request->user();
         $status = $request->user()->payment->status;
 
+        if(!$user->division_id || !$user->address || !$user->program_study || !$user->reference_source){
+            return redirect()->route('edit-profile');
+        }
+
         return view('wizard.summary', compact('user', 'status'));
     }
 }
