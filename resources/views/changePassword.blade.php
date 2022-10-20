@@ -12,7 +12,7 @@
         <div class="flex flex-col-reverse md:space-y-0 md:flex-row md:px-10">
             <div class="flex flex-col mx-auto bg-white drop-shadow-md md:w-full p-20 rounded-xl">
                 <!-- Validation Errors -->
-                <x-auth-validation-errors class="mb-4 " :errors="$errors" />
+                <x-auth-validation-errors class="mb-4 text-red-500" :errors="$errors" />
 
                 @if (session('status'))
                     <div class="alert alert-success mb-4" role="alert">
