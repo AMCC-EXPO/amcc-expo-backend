@@ -41,13 +41,17 @@ class WizardController extends Controller
 
     public function paymentMethod(Request $request)
     {
-        if ($request->user()->wizard == 'summary') {
-            return redirect()->route('wizard.summary');
+        $user = $request->user();
+
+        if ($user->payment->status == 'paid') {
+            if ($user->wizard == 'summary') {
+                return redirect()->route('wizard.summary');
+            }
         }
 
         $paymentMethods = PaymentMethod::where('is_active', true)->get();
 
-        return view('wizard.payment_method', compact('paymentMethods'));
+        return view('wizard.payment_method', compact('paymentMethods', 'user'));
     }
 
     public function updatePaymentMethod(Request $request)
@@ -65,8 +69,10 @@ class WizardController extends Controller
 
     public function paymentConfirm(Request $request)
     {
-        if ($request->user()->wizard == 'summary') {
-            return redirect()->route('wizard.summary');
+        if (!$request->user()->payment->status == 'unpaid') {
+            if ($request->user()->wizard == 'summary') {
+                return redirect()->route('wizard.summary');
+            }
         }
 
         $paymentMethod = $request->user()->payment->paymentMethod;
@@ -101,8 +107,16 @@ class WizardController extends Controller
         $user = $request->user();
         $status = $request->user()->payment->status;
 
-        if(!$user->division_id || !$user->address || !$user->program_study || !$user->reference_source){
+        if (!$user->division_id || !$user->address || !$user->program_study || !$user->reference_source) {
             return redirect()->route('edit-profile');
+        }
+
+        if (!$user->payment->payment_method_id) {
+            return redirect()->route('wizard.payment-method');
+        }
+
+        if ($user->payment->status == 'unpaid') {
+            return redirect()->route('wizard.payment-confirm');
         }
 
         return view('wizard.summary', compact('user', 'status'));

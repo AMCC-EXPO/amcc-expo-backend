@@ -21,15 +21,15 @@ class AccountController extends Controller
         $user = $request->user();
         $divisions = Division::all();
 
-        $today = Carbon::today()->toDateString();
-        $setting = Setting::first();
-        $inPeriod = false;
+        // $today = Carbon::today()->toDateString();
+        // $setting = Setting::first();
+        // $inPeriod = false;
 
-        if ($today >= $setting->date_start && $today <= $setting->date_end) {
-            $inPeriod = true;
-        }
+        // if ($today >= $setting->date_start && $today <= $setting->date_end) {
+        //     $inPeriod = true;
+        // }
 
-        return view('editProfile', compact('user', 'divisions', 'inPeriod'));
+        return view('editProfile', compact('user', 'divisions'));
     }
 
     public function updateProfile(Request $request)

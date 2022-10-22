@@ -64,6 +64,10 @@
                                 <div class="md:text-xl font-bold">Alamat Domisili :</div>
                                 <div class="">{{ ($user->address) ? $user->address : '-' }}</div>
                             </div>
+                            <div class="block md:w-1/2 w-full rounded-xl mt-2">
+                                <div class="md:text-xl font-bold">Metode Pembayaran :</div>
+                                <div class="">{{ ($user->payment->payment_method_id) ? $user->payment->paymentMethod->name : '-' }}</div>
+                            </div>
                             <div class="block md:w-1/2 w-full rounded-xl mt-2 space-y-3">
                                 <div class="md:text-xl font-bold">Status Pendaftaran</div>
                                 @if ($status == 'paid')

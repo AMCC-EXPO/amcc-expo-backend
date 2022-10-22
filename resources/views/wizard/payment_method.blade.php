@@ -17,7 +17,7 @@
                         @foreach ($paymentMethods as $paymentMethod)
                             <li>
                                 <input type="radio" id="paymentMethod{{ $paymentMethod->id }}" name="paymentMethod"
-                                    value="{{ $paymentMethod->id }}" class="hidden peer" required/>
+                                    value="{{ $paymentMethod->id }}" class="hidden peer" required {{ ($user->payment->payment_method_id == $paymentMethod->id) ? 'checked' : ''}}/>
                                 <label for="paymentMethod{{ $paymentMethod->id }}"
                                     class="inline-flex justify-between items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-primary-color peer-checked:text-primary-color hover:text-gray-600 hover:bg-gray-100">
                                     <div class="flex items-center space-x-5">

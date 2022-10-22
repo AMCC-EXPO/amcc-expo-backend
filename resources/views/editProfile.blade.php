@@ -13,7 +13,7 @@
         <div class="flex flex-col-reverse md:space-y-0 md:flex-row md:px-10">
             <div class="flex flex-col mx-auto bg-white drop-shadow-md md:w-full p-20 rounded-xl">
 
-                @if ($inPeriod == true)
+                @if ($user->payment->status == "review")
 
                     <form enctype="multipart/form-data" method="POST" action="{{ route('update-profile') }}">
                         @csrf
@@ -156,7 +156,7 @@
                     </form>
                 @else
                     <h1 class="text-center text-xl md:text-[16px] font-medium">
-                        Maaf, fitur ubah data diri sudah ditutup. Silahkan menghubungi CS.
+                        Maaf, fitur ubah data diri sudah ditutup karena pembayaran kamu sudah diverifikasi. Jika ingin Pindah Divisi mohon menunggu informasi berikutnya, Terimakasih :)
                     </h1>
                 @endif
             </div>
