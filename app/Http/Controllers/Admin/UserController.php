@@ -13,10 +13,22 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // $users = User::all()->sortDesc();
         $users = User::paginate(30);
+
+        $filterKeyword = $request->get('keyword');
+        $status = $request->get('status');
+
+        if ($filterKeyword) {
+            $users = \App\Models\User::where(
+                'registration_number',
+                'LIKE',
+                "%$filterKeyword%"
+            )
+            ->paginate(50);
+        }
 
         return view("admin.users.index", compact('users'));
     }
