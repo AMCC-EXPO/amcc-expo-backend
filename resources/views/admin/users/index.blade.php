@@ -25,7 +25,7 @@
         @endif
 
         <div class="flex justify-start flex-1 mb-4 lg:mr-32">
-            <div class="relative w-full max-w-xl focus-within:text-blue-500">
+            <div class="relative w-full focus-within:text-blue-500">
                 <div class="absolute inset-y-0 flex items-center pl-2">
                     <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
@@ -39,10 +39,16 @@
                         <form action="{{ route('admin.members.index') }}">
 
                             <input type="number"
-                                class="block w-full pr-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
-                                placeholder="Nomor Registrasi" value="{{ Request::get('keyword') }}" name="keyword" />
+                                class="pr-0 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
+                                placeholder="Nomor Registrasi" value="{{ Request::get('noreg') }}" name="noreg" />
+                            <input type="text"
+                                class="pr-0 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
+                                placeholder="NIM" value="{{ Request::get('nim') }}" name="nim" />
+                            <input type="text"
+                                class="pr-0 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
+                                placeholder="Nama" value="{{ Request::get('nama') }}" name="nama" />
                             <button
-                                class="absolute inset-y-0 right-0 px-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-r-md active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                class="absolute inset-y-0 ml-1 px-4 text-sm font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
                                 Cari
                             </button>
                         </form>

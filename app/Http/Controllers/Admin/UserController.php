@@ -15,19 +15,32 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        // $users = User::all()->sortDesc();
         $users = User::paginate(30);
 
-        $filterKeyword = $request->get('keyword');
-        $status = $request->get('status');
+        $noreg = $request->get('noreg');
+        $nim = $request->get('nim');
+        $name = $request->get('nama');
 
-        if ($filterKeyword) {
-            $users = \App\Models\User::where(
-                'registration_number',
-                'LIKE',
-                "%$filterKeyword%"
-            )
-            ->paginate(50);
+        if ($request) {
+            $users = User::when($noreg, function ($query, $noreg) {
+                $query->where(
+                    'registration_number',
+                    'LIKE',
+                    "%$noreg%"
+                );
+            })->when($nim, function ($query, $nim) {
+                $query->where(
+                    'nim',
+                    'LIKE',
+                    "%$nim%"
+                );
+            })->when($name, function ($query, $name) {
+                $query->where(
+                    'name',
+                    'LIKE',
+                    "%$name%"
+                );
+            })->paginate(50);
         }
 
         return view("admin.users.index", compact('users'));
