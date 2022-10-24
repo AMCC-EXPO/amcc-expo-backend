@@ -4,12 +4,30 @@
 
 @section('content')
     <div class="container grid px-6 pb-16 mx-auto">
-        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-            Member
-        </h2>
+
+        <div class="divisi-wrapper flex justify-between items-center">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                <span>Member</span>
+            </h2>
+            <a href="{{ route('admin.members.create') }}"
+                class="button flex px-4 h-8 text-sm font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                <span class="mt-1">
+                    Tambah Member
+                </span>
+            </a>
+        </div>
+
+        @if (session('status'))
+            <div class="mb-4 text-sm bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                role="alert">
+                <strong class="font-bold block">{{ session('status') }}</strong>
+                {{-- <span class="block">NIM: {{ session('user')->nim }}</span> --}}
+            </div>
+        @endif
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
+
                 <table class="w-full whitespace-no-wrap">
                     <thead>
                         <tr

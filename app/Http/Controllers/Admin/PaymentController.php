@@ -34,7 +34,7 @@ class PaymentController extends Controller
 
         $user->notify(new PaidNotification($user));
 
-        return redirect()->route('admin.members.index');
+        return redirect()->route('admin.members.index')->with('status', 'Pembayaran berhasil diverifikasi!');
     }
 
     public function showReceipt($hash)

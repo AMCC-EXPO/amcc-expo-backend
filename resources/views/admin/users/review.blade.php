@@ -26,6 +26,14 @@
                             </h4>
                             <div>
                                 <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
+                                    Nomor Pendaftaran
+                                </h6>
+                                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                    #{{ $user->registration_number }}
+                                </p>
+                            </div>
+                            <div>
+                                <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
                                     Nama
                                 </h6>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">

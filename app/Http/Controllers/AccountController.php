@@ -79,6 +79,6 @@ class AccountController extends Controller
             'password' => Hash::make("amccamikom")
         ]);
 
-        return redirect()->route('admin.members.index');
+        return redirect()->route('admin.members.index')->with('status', 'Sukses reset password! Password default "amccamikom"');
     }
 }
