@@ -50,36 +50,67 @@
                             </div>
                             <div>
                                 <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
-                                    Metode Pembayaran
+                                    Email
                                 </h6>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    {{ $payment->paymentMethod->name }}
+                                    {{ $user->email }}
                                 </p>
                             </div>
                             <div>
                                 <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
-                                    Rekening Tujuan
+                                    No. Handphone
                                 </h6>
                                 <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    {{ $payment->paymentMethod->receiver_number . ' a.n ' . $payment->paymentMethod->receiver_name }}
+                                    {{ $user->phone }}
                                 </p>
                             </div>
-                            <div>
-                                <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
-                                    Nominal
-                                </h6>
-                                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    Rp.{{ number_format($payment->amount) }}
-                                </p>
-                            </div>
-                            <div>
-                                <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
-                                    Upload Bukti Pembayaran
-                                </h6>
-                                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                    {{ date_format($payment->updated_at, 'd/m/Y H:i:s') }}
-                                </p>
-                            </div>
+
+                            @if ($user->division_id)
+                                <div>
+                                    <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
+                                        Divisi
+                                    </h6>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        {{ $user->division->name }}
+                                    </p>
+                                </div>
+                            @endif
+
+                            @if ($payment->payment_method_id)
+                                <div>
+                                    <h6 class="mb-1 mt-8 font-semibold text-gray-600 dark:text-gray-300">
+                                        Metode Pembayaran
+                                    </h6>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        {{ $payment->paymentMethod->name }}
+                                    </p>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
+                                        Rekening Tujuan
+                                    </h6>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        {{ $payment->paymentMethod->receiver_number . ' a.n ' . $payment->paymentMethod->receiver_name }}
+                                    </p>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
+                                        Nominal
+                                    </h6>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        Rp.{{ number_format($payment->amount) }}
+                                    </p>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
+                                        Upload Bukti Pembayaran
+                                    </h6>
+                                    <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                                        {{ date_format($payment->updated_at, 'd/m/Y H:i:s') }}
+                                    </p>
+                                </div>
+                            @endif
+
                             <div>
                                 <h6 class="mb-1 font-semibold text-gray-600 dark:text-gray-300">
                                     Status

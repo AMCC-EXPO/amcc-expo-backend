@@ -148,7 +148,7 @@
 
                                         <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                             aria-label="Review" type="button" alt="Review"
-                                            href="{{ $user->payment->status != 'unpaid' ? route('admin.review', [$user->id]) : '#' }}">
+                                            href="{{ route('admin.review', [$user->id]) }}">
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
