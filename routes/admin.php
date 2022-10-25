@@ -42,6 +42,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource("settings", SettingController::class)
         ->middleware('auth:admin');
 
+    Route::get('/chat', [UserController::class, 'chat'])
+        ->middleware('auth:admin')
+        ->name('chat');
+
     Route::get('/members/{id}/review', [PaymentController::class, 'review'])
         ->middleware('auth:admin')
         ->name('review');

@@ -116,4 +116,24 @@ class UserController extends Controller
 
         return redirect()->route('admin.members.index')->with('status', 'Sukses menghapus member!');
     }
+
+    public function chat(Request $request){
+        $users = User::with('payment')
+                    ->whereRelation('payment', 'status', '=', 'unpaid')->get();
+
+        foreach($users as $user){
+            $messages[] = [
+                "message"=> "Hallo $user->name ✨\n \nGimana kabarnya nih? semoga sehat selalu dan tetap semangat yaa 💙 \n \nMenindak lanjuti dari proses pendaftaran member AMCC, izin memberi info nihh kalau batas pembayaran member AMCC *diperpanjang* sampai tanggal *26 Oktober 2022, pukul 23.59* \n \nBagi teman-teman yang belum sempat melakukan pembayaran masih ada kesempatan nih untuk menyelesaikan proses pendaftaran member AMCC 🚀 \n \nJangan di sia-siakan ya teman-teman kesempatan untuk join dengan AMCC, karena AMCC hanya buka pendaftaran sekali selama EXPO. Kami harap teman-teman tidak melewatkan kesempatan ini karena akan banyak sekali benefit yang temen-temen dapatkan di AMCC 🥰 \n\nTerima kasih, semangat selalu temen-temen ✨🤗",
+                "phone_number"=> "62". ltrim($user->phone, '0'),
+                "message_type"=> "text"
+            ];
+        }
+
+        $data = [
+            "messages" => $messages,
+            "device_id" => "cs-expo"
+        ];
+
+        return response()->json($data);
+    }
 }
