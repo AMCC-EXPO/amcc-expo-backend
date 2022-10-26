@@ -26,6 +26,7 @@ class SettingController extends Controller
         $setting->date_end = $request->get('date_end');
         $setting->opening_hours = $request->get('opening_hours');
         $setting->closing_hours = $request->get('closing_hours');
+        $setting->payment_is_open = $request->get('payment_state');
         $setting->cs_number = $request->get('cs_number');
         $setting->link_group = $request->get('link_group');
         $setting->save();

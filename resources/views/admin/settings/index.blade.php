@@ -65,6 +65,26 @@
                             name="closing_hours" value="{{ $setting->closing_hours }}" />
                     </label>
 
+                    <label class="mt-4 block text-sm">
+                        <span class="block text-gray-700 dark:text-gray-400">Pembayaran?</span>
+                        <div class="mt-2">
+                            <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
+                                <input type="radio"
+                                    class="text-blue-600 form-radio focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray"
+                                    name="payment_state" value="1"
+                                    {{ $setting->payment_is_open == true ? 'checked' : '' }} />
+                                <span class="ml-2">Dibuka</span>
+                            </label>
+                            <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+                                <input type="radio"
+                                    class="text-blue-600 form-radio focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray"
+                                    name="payment_state" value="0"
+                                    {{ $setting->payment_is_open == false ? 'checked' : '' }} />
+                                <span class="ml-2">Ditutup</span>
+                            </label>
+                        </div>
+                    </label>
+
                     <h4 class="mt-6 mb-1 text-lg font-semibold text-gray-600 dark:text-gray-300">
                         WhatsApp
                     </h4>

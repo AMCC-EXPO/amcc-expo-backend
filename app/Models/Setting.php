@@ -16,8 +16,13 @@ class Setting extends Model
         'date_end',
         'opening_hours',
         'closing_hours',
+        'payment_is_open',
         'cs_number',
         'link_group',
         'initial_registration_number',
+    ];
+
+    protected $casts = [
+        'payment_is_open' => 'boolean',
     ];
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Division;
 use App\Models\PaymentMethod;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class WizardController extends Controller
@@ -51,7 +52,9 @@ class WizardController extends Controller
 
         $paymentMethods = PaymentMethod::where('is_active', true)->get();
 
-        return view('wizard.payment_method', compact('paymentMethods', 'user'));
+        $paymentState = Setting::first()->payment_is_open;
+
+        return view('wizard.payment_method', compact('paymentMethods', 'user', 'paymentState'));
     }
 
     public function updatePaymentMethod(Request $request)
@@ -79,7 +82,9 @@ class WizardController extends Controller
         // $paymentDue = date_format($request->user()->payment->payment_due, 'd/m/Y H:i:s');
         $paymentDue = $request->user()->payment->payment_due;
 
-        return view('wizard.payment_confirm', compact('paymentMethod', 'paymentDue'));
+        $paymentState = Setting::first()->payment_is_open;
+
+        return view('wizard.payment_confirm', compact('paymentMethod', 'paymentDue', 'paymentState'));
     }
 
     public function storePaymentConfirm(Request $request)
