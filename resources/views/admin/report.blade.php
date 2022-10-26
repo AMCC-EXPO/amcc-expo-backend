@@ -71,7 +71,7 @@
                             {{ $paymentMethod->name }}
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            Rp.{{ number_format($totalAmount[$paymentMethod->id]) }}
+                            Rp.{{ number_format($totalAmount[$paymentMethod->id]) }} ({{ number_format($totalUser[$paymentMethod->id]) }})
                         </p>
                     </div>
                 </div>

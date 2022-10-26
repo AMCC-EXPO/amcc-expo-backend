@@ -51,8 +51,9 @@ class DashboardController extends Controller
 
         foreach ($paymentMethods as $paymentMethod) {
             $totalAmount[$paymentMethod->id] = Payment::where('payment_method_id', $paymentMethod->id)->where('status', 'paid')->sum('amount');
+            $totalUser[$paymentMethod->id] = Payment::where('payment_method_id', $paymentMethod->id)->where('status', 'paid')->count();
         }
 
-        return view('admin.report', compact('users', 'income', 'paymentMethods', 'totalAmount'));
+        return view('admin.report', compact('users', 'income', 'paymentMethods', 'totalAmount', 'totalUser'));
     }
 }
