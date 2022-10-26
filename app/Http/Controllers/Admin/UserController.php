@@ -132,7 +132,7 @@ class UserController extends Controller
         $data->payment->delete();
         $data->delete();
 
-        return redirect()->route('admin.members.index')->with('status', 'Sukses menghapus member!');
+        return back()->with('status', 'Sukses menghapus member!');
     }
 
     public function chat(Request $request){
