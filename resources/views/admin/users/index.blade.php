@@ -63,9 +63,9 @@
                                 class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray">
                                 <option selected disabled hidden>Status</option>
                                 <option value="">Semua</option>
-                                <option value="unpaid">Belum Bayar</option>
-                                <option value="review">Perlu direview</option>
-                                <option value="paid">Lunas</option>
+                                <option value="unpaid" {{ (Request::get('status') == 'unpaid') ? 'selected' : '' }}>Belum Bayar</option>
+                                <option value="review" {{ (Request::get('status') == 'review') ? 'selected' : '' }}>Perlu direview</option>
+                                <option value="paid" {{ (Request::get('status') == 'paid') ? 'selected' : '' }}>Lunas</option>
                             </select>
 
                             <button
