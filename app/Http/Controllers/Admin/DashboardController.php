@@ -29,20 +29,14 @@ class DashboardController extends Controller
             'totalIncome' => Payment::sum('amount'),
         ];
 
-        $pending = [
-            'todayUser' => Payment::whereDate('created_at', $today)->where('status', 'review')->count(),
-            'todayIncome' => Payment::whereDate('created_at', $today)->where('status', 'review')->sum('amount'),
-            'totalUser' => Payment::where('status', 'review')->count(),
-            'totalIncome' => Payment::where('status', 'review')->sum('amount'),
+        $user = [
+            'unpaid' => User::with('payment')->whereRelation('payment', 'status', 'unpaid')->count(),
+            'review' => User::with('payment')->whereRelation('payment', 'status', 'review')->count(),
+            'paid' => User::with('payment')->whereRelation('payment', 'status', 'paid')->count(),
         ];
 
-        $success = [
-            'todayUser' => Payment::whereDate('created_at', $today)->where('status', 'paid')->count(),
-            'todayIncome' => Payment::whereDate('created_at', $today)->where('status', 'paid')->sum('amount'),
-            'totalUser' => Payment::where('status', 'paid')->count(),
-            'totalIncome' => Payment::where('status', 'paid')->sum('amount'),
-        ];
+        $income = Payment::where('status', 'paid')->sum('amount');
 
-        return view('admin.dashboard', compact('all', 'pending', 'success'));
+        return view('admin.dashboard', compact('all', 'user', 'income'));
     }
 }
