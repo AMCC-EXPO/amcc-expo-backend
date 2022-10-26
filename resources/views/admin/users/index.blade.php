@@ -47,6 +47,27 @@
                             <input type="text"
                                 class="pr-0 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
                                 placeholder="Nama" value="{{ Request::get('nama') }}" name="nama" />
+
+                            {{-- <select name="paymentMethod"
+                                class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray">
+                                <option selected disabled hidden>Metode Pembayaran</option>
+                                <option value="">Semua</option>
+
+                                @foreach ($paymentMethods as $paymentMethod)
+                                    <option value="{{ $paymentMethod->id }}">{{ $paymentMethod->name }}</option>
+                                @endforeach
+
+                            </select> --}}
+
+                            <select name="status"
+                                class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray">
+                                <option selected disabled hidden>Status</option>
+                                <option value="">Semua</option>
+                                <option value="unpaid">Belum Bayar</option>
+                                <option value="review">Perlu direview</option>
+                                <option value="paid">Lunas</option>
+                            </select>
+
                             <button
                                 class="absolute inset-y-0 ml-1 px-4 text-sm font-medium text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
                                 Cari
@@ -123,10 +144,8 @@
                                     <div class="flex items-center space-x-4 text-sm">
                                         @if ($user->payment->payment_method_id != null)
                                             @if ($user->payment->paymentMethod->name == 'Pembayaran Cash' && $user->payment->status == 'review')
-                                                <form
-                                                    onsubmit="return confirm('Yakin ingin menyetujui pembayarannya?')"
-                                                    class="d-inline"
-                                                    action="{{ route('admin.approve', [$user->id]) }}"
+                                                <form onsubmit="return confirm('Yakin ingin menyetujui pembayarannya?')"
+                                                    class="d-inline" action="{{ route('admin.approve', [$user->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     {{-- <input type="hidden" name="_method" value="PUT"> --}}

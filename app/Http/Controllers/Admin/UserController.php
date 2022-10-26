@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PaymentMethod;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -16,13 +17,16 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::paginate(30);
+        $paymentMethods = PaymentMethod::all();
 
         $noreg = $request->get('noreg');
         $nim = $request->get('nim');
         $name = $request->get('nama');
+        // $paymentMethod = $request->get('paymentMethod');
+        $status = $request->get('status');
 
         if ($request) {
-            $users = User::when($noreg, function ($query, $noreg) {
+            $users = User::with('payment')->when($noreg, function ($query, $noreg) {
                 $query->where(
                     'registration_number',
                     'LIKE',
@@ -40,10 +44,24 @@ class UserController extends Controller
                     'LIKE',
                     "%$name%"
                 );
-            })->paginate(50);
+            // })->when($paymentMethod, function ($query, $paymentMethod) {
+            //     $query->whereRelation(
+            //         'payment',
+            //         'payment_method_id',
+            //         $paymentMethod
+            //     );
+            })->when($status, function ($query, $status) {
+                $query->whereRelation(
+                    'payment',
+                    'status',
+                    $status
+                );
+            })
+
+            ->paginate(100);
         }
 
-        return view("admin.users.index", compact('users'));
+        return view("admin.users.index", compact('users', 'paymentMethods'));
     }
 
     public function create()
