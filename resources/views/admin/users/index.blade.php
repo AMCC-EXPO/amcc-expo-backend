@@ -48,7 +48,7 @@
                                 class="pr-0 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray form-input"
                                 placeholder="Nama" value="{{ Request::get('nama') }}" name="nama" />
 
-                            {{-- <select name="paymentMethod"
+                            <select name="paymentMethod"
                                 class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray">
                                 <option selected disabled hidden>Metode Pembayaran</option>
                                 <option value="">Semua</option>
@@ -57,7 +57,7 @@
                                     <option value="{{ $paymentMethod->id }}">{{ $paymentMethod->name }}</option>
                                 @endforeach
 
-                            </select> --}}
+                            </select>
 
                             <select name="status"
                                 class="mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray">

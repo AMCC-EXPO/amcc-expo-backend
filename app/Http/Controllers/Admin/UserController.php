@@ -22,7 +22,7 @@ class UserController extends Controller
         $noreg = $request->get('noreg');
         $nim = $request->get('nim');
         $name = $request->get('nama');
-        // $paymentMethod = $request->get('paymentMethod');
+        $paymentMethod = $request->get('paymentMethod');
         $status = $request->get('status');
 
         if ($request) {
@@ -44,12 +44,12 @@ class UserController extends Controller
                     'LIKE',
                     "%$name%"
                 );
-            // })->when($paymentMethod, function ($query, $paymentMethod) {
-            //     $query->whereRelation(
-            //         'payment',
-            //         'payment_method_id',
-            //         $paymentMethod
-            //     );
+            })->when($paymentMethod, function ($query, $paymentMethod) {
+                $query->whereRelation(
+                    'payment',
+                    'payment_method_id',
+                    $paymentMethod
+                );
             })->when($status, function ($query, $status) {
                 $query->whereRelation(
                     'payment',
